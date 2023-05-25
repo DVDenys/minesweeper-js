@@ -22,7 +22,7 @@ function addBombs(bombCount) {
 }
 
 export function getAllNeighbor(coordinates) {
-  const {x,y} = coordinates
+  const { x, y } = coordinates;
 
   const n_1 = matrix[y - 1]?.[x];
   const n_2 = matrix[y - 1]?.[x + 1];
@@ -33,16 +33,19 @@ export function getAllNeighbor(coordinates) {
   const n_7 = matrix[y]?.[x - 1];
   const n_8 = matrix[y - 1]?.[x - 1];
 
-  return [
-    n_1,
-    n_2,
-    n_3,
-    n_4,
-    n_5,
-    n_6,
-    n_7,
-    n_8,
-  ].filter(item => typeof item !== 'undefined')
+  return [n_1, n_2, n_3, n_4, n_5, n_6, n_7, n_8].filter(
+    (item) => typeof item !== "undefined"
+  );
+}
+
+export function openAllBoxes() {
+  matrix.forEach((matrixLine) => {
+    matrixLine.forEach((box) => {
+      if(box.isBomb) {
+        box.open();
+      }
+    });
+  });
 }
 
 export function createMatrix(width = 8, height = 8, bombCount = 10) {
@@ -53,7 +56,7 @@ export function createMatrix(width = 8, height = 8, bombCount = 10) {
 
   matrix.forEach((matrixLine, y) => {
     matrixLine.forEach((matrixElem, x) => {
-      const newBox = createBox(Boolean(matrixElem));
+      const newBox = createBox(Boolean(matrixElem), { x, y });
 
       matrix[y][x] = newBox;
     });
