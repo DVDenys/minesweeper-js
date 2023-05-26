@@ -8,13 +8,13 @@ class Box {
     this.coordinates = coordinates;
   }
 
-  setBoxValuse(value) {
+  setBoxValue(value) {
     this.value = value;
   }
 
   setBoxType() {
     if (this.isBomb) {
-      this.setBoxValuse("💣");
+      this.setBoxValue("💣");
       return;
     }
     const allNeighbor = getAllNeighbor(this.coordinates);
@@ -26,7 +26,7 @@ class Box {
       }
     });
     if (bombCount) {
-      this.setBoxValuse(bombCount);
+      this.setBoxValue(bombCount);
     }
   }
 
@@ -36,7 +36,7 @@ class Box {
 
   setFlag(isFlagged) {
     this.isFlagged = isFlagged;
-    this.boxElem.innerHTML = "🚩"
+    this.boxElem.innerHTML = "🚩";
   }
 
   open() {
@@ -71,17 +71,18 @@ class Box {
     boxElem.classList.add("initial");
 
     if (this.value) {
-      boxElem.classList.add(`bomb-count-${this.value}`);
+      boxElem.classList.add(`bomb-count-${this.isBomb ? "bomb" : this.value}`);
     }
 
     this.boxElem = boxElem;
     this.boxElem.addEventListener("click", () => this.onBoxClick());
     this.boxElem.addEventListener("contextmenu", (e) => {
       e.preventDefault();
-      if(!this.isOpenned) {
+      if (!this.isOpenned) {
         this.setFlag(true);
-      }   
+      }
     });
+
     appElem.appendChild(boxElem);
   }
 }

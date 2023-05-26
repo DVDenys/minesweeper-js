@@ -1,64 +1,78 @@
 :root {
-    --boxSize: 50px; 
+  --boxSize: 50px;
 }
 * {
-    box-sizing: border-box;
-} 
+  box-sizing: border-box;
+}
 body {
-    margin: 0 auto;
-    padding: 0;
-    font-size: 16px;
-    font-weight: 700;
-    font-family: sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+#new-game {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: lightgrey;
+    border: 3px outset grey;
+    text-transform: uppercase;
 }
 
 #app {
-    max-width: calc(var(--boxSize)*8);
-    max-height: calc(var(--boxSize)*8);
+  max-width: calc(var(--boxSize) * 8);
+  max-height: calc(var(--boxSize) * 8);
 
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .box {
-    width: var(--boxSize);
-    height: var(--boxSize);
-    background: lightgrey;
-    border: 1px solid darkgrey;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: var(--boxSize);
+  height: var(--boxSize);
+  background: lightgrey;
+  border: 1px solid darkgrey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .box.initial {
-    border: 3px outset grey;
-    cursor: pointer;
+  background-color: lightgrey;
+  border: 3px outset grey;
+  cursor: pointer;
 }
 
 .bomb-count-1 {
-    color: blue;
+  color: blue;
 }
 .bomb-count-2 {
-    color: green;
+  color: green;
 }
 .bomb-count-3 {
-    color: red;
+  color: red;
 }
 .bomb-count-4 {
-    color: darkblue;
+  color: darkblue;
 }
 .bomb-count-5 {
-    color: brown;
+  color: brown;
 }
 .bomb-count-6 {
-    color: turquoise;
+  color: turquoise;
 }
 .bomb-count-7 {
-    color: black;
+  color: black;
 }
 .bomb-count-8 {
-    color: white;
+  color: white;
+}
+
+.bomb-count-bomb {
+  background-color: red;
 }
